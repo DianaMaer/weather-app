@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
+import Home from './components/Home';
+import Contact from './components/Contact';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Search from './components/Search'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      data: null,
+    }
+  }
+
+  componentDidMount(){
+    this.fetchData()
+  }
+
+  fetchData = () => {
+    fetch('https://api.openweathermap.org/data/2.5/forecast?q=Berlin&appid=177c1eb7d3293c259b90829ca5283840&units=metric')
+      .then(res => res.json())
+        .then(data => this.setState({data, isLoaded: true,}))
+  }
+
+  fetchOnSearch = (text) => {
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${text}&appid=177c1eb7d3293c259b90829ca5283840&units=metric`)
+      .then(res => res.json())
+        .then(data => this.setState({data}))
+  }
+
+  render(){
+    const {data, isLoaded } = this.state;
+    //console.log(data);
+    return (
+      <>
+        <Navbar />
+        <Search onSearch={this.fetchOnSearch}/>
+        <Switch>
+         <Route exact path='/' render ={
+            () => data && (<Home {...data} />)
+            } />
+          <Route path='/contact' component={Contact}/>
+        </Switch>
+        <Footer />
+      </>
+       );
+  }
 }
 
 export default App;
