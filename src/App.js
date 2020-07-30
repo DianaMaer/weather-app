@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Search from './components/Search'
+
 
 class App extends Component{
   constructor(props){
@@ -35,17 +35,16 @@ class App extends Component{
     const {data, isLoaded } = this.state;
     //console.log(data);
     return (
-      <>
+      <div className="app-container">
         <Navbar />
-        <Search onSearch={this.fetchOnSearch}/>
         <Switch>
          <Route exact path='/' render ={
-            () => data && (<Home {...data} />)
+            () => data && (<Home {...data} onSearch={this.fetchOnSearch} />)
             } />
           <Route path='/contact' component={Contact}/>
         </Switch>
         <Footer />
-      </>
+      </div>
        );
   }
 }

@@ -5,7 +5,7 @@ const DaysList = (props) =>{
     console.log(props)
     const [dailyData, setDailyData] = useState([]);
 
-    useEffect(() => setData(), [])
+    useEffect(() => setData(), [props])
 
     const setData = () => {
         setDailyData(
@@ -14,15 +14,11 @@ const DaysList = (props) =>{
     } 
     console.log('dailyData', dailyData);
      return( 
-        
-        <div>
-            <h2>5-day forecast</h2>
-            <div> 
+            <div className="daily-info"> 
                 {
                     dailyData.map(item => <DayCard {...item} key={item.dt_txt} />)
                 }
             </div>
-        </div>
     )
 }
 

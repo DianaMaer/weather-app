@@ -1,38 +1,56 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.app-container{
+  width: 90%;
+  
+  margin: 0 auto;
+}
+
+/*tyopogtaphy*/
+h1{
   text-align: center;
+  font-weight: 500;
+  margin: 1.5em 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*style the current container*/
+.current-container{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.current-info{
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.current-info p{
+  margin: 0 1em;
+  font-weight: light;
+}
+
+
+/*style the daily-info container*/
+.daily-info{
+  display: flex;
+  margin: 7em 0;
+  justify-content: space-between;
+}
+
+.day-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-icon{
+  align-self: center;
+}
+
+.info-date-comtainer{
+  display: flex;
+  flex-direction: column;
 }
