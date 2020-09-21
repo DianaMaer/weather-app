@@ -4,16 +4,21 @@
 }
 
 .app-container{
-  width: 90%;
-  
+  background-color: #f7f7f7;
   margin: 0 auto;
+  padding: 0 50px;
 }
 
 /*tyopogtaphy*/
 h1{
   text-align: center;
   font-weight: 500;
-  margin: 1.5em 0;
+  margin: 1.5em 0 1em 0;
+}
+
+h3{
+  text-align: center;
+  font-weight: 400;
 }
 
 /*style the current container*/
@@ -53,4 +58,47 @@ h1{
 .info-date-comtainer{
   display: flex;
   flex-direction: column;
+}
+
+
+/*style navbar*/
+.navigation{
+  display: flex;
+  list-style: none;
+  justify-content: flex-end;
+  padding: 25px 0 25px 0;
+  font-weight: bold;
+  font-size: 16px;
+  
+}
+
+.navigation a{
+  margin: 0 0 0 10px;  
+  text-decoration: none;
+  color: #061838;
+}
+
+.navigation a:hover{
+  color: #6495ed;
+}
+
+/*style form inputs*/
+form{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.text-input{
+  height: 26px;
+  margin: 0 10px;
+  border-radius: 3px;
+  border: 1px solid #061838;
+  width: 150px;
+  padding: 0 5px ;
+}
+
+.button-input{
+  border-radius: 3px;
+  border: 1px solid #061838;
+  width: 50px;
 }
