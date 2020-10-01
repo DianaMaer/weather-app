@@ -14,11 +14,15 @@ const DaysList = (props) =>{
     } 
     console.log('dailyData', dailyData);
      return( 
+         <div className="days-list">
+            <p>Forecast for the next 5 days</p>
             <div className="daily-info"> 
+                
                 {
                     dailyData.map(item => <DayCard {...item} key={item.dt_txt} />)
                 }
             </div>
+        </div>
     )
 }
 
